@@ -25,8 +25,12 @@ contract TwContract {
 
     Tweet[] private tweets;
 
-    mapping(uint256 => address) tweetToOwner;
+    mapping(uint => address) tweetToOwner;
 
+
+    // msg.sender sender of the message (current call) :)
+    // https://medium.com/coinmonks/solidity-who-the-heck-is-msg-sender-de68d3e98454
+    
     // called for the frontend side
     function _writeTweet(string memory _twText, bool _isDeleted) external {
         uint twID = tweets.length;
