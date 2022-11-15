@@ -72,15 +72,13 @@ contract TwContract {
     }
 
     // called for the frontend side
-    function _updateTweet(uint256 _twID, string memory _newText, bool _isDeleted) external {
+    function _updateTweet(uint _twID, string memory _newText, bool _isDeleted) external {
         if (tweetToOwner[_twID] == msg.sender) {
-            uint256 newTweetId = tweets.length;
+            uint newTweetId = tweets.length;
             tweets[_twID].isDeleted = true;
-            tweets.push(
-                Tweet(newTweetId, msg.sender, _newText, _isDeleted)
-            );
+            tweets.push(Tweet(newTweetId, msg.sender, _newText, _isDeleted));
             tweetToOwner[newTweetId] = msg.sender;
-
+            
             emit UpdateTweet(msg.sender, _twID, _isDeleted);
         }
     }

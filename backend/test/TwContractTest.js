@@ -1,7 +1,7 @@
 const {expect} = require("chai");
 const {ethers} = require("hardhat");
 
-describe("Contract", function() {
+describe("TwContract", function() {
   let Twitter;
   let twitter;
   let owner;
@@ -16,7 +16,6 @@ describe("Contract", function() {
     Twitter = await ethers.getContractFactory("TwContract");
     [owner, addr1, addr2] = await ethers.getSigners();
 
-    console.log('owner: ' + owner.address, 'addr1: ' + addr1.address, 'addr2:'+ addr2.address)
     twitter = await Twitter.deploy();
 
     _totalTweets = [];
@@ -70,21 +69,22 @@ describe("Contract", function() {
     })
   })
 
-  describe('Update Tweet', () => {
+  describe('Update Tweet', function() {
     it('should emit UpdateTweet event', async function() {
-      const TWEET_ID = 14; // Belongs to the owner
+      const TWEET_ID = 13;
       const TWEET_NEW_TEXT = 'Edit Tweet text';
-      const TWEET_DELETED = false;
+      const ISDELETED = false;
 
+      // await expect(await twitter._writeTweet(tweet.newText, tweet.isDeleted)
+      // ).to.emit(twitter, 'WriteTweet').withArgs(owner.address, TOTAL_ALLMINUS + TOTAL_USERSPECIFIC);
       await expect(
-        twitter.connect(owner.address)._updateTweet(TWEET_ID, TWEET_NEW_TEXT, TWEET_DELETED)
+        twitter._updateTweet(TWEET_ID, TWEET_NEW_TEXT, ISDELETED)
       ).to.emit(
         twitter, 'UpdateTweet'
         ).withArgs(
-          owner.address, TWEET_ID, TWEET_DELETED);
+          owner.address, TWEET_ID, ISDELETED);
     });
-  });
-
+  })
 
   describe("Delete Tweet", function() {
     it("should emit delete tweet event", async function() {
