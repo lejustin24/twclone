@@ -1,0 +1,70 @@
+ .sidebar {
+     padding-right: 20px;
+     width: 21%;
+ }
+
+ .logo {
+     width: 80px;
+     margin-top: 20px;
+     margin-left: 20px;
+     margin-bottom: 20px;
+ }
+
+ .tweetBtn {
+     margin-top: 15px;
+     height: 50px;
+     width: 100%;
+     background: #E76E3F;
+     color: #fff;
+     border-radius: 30px;
+     border: 1px solid #E76E3F;
+ }
+
+ .tweetBtn:hover {
+     background: #EF3118 !important;
+     border: 1px solid #EF3118 !important;
+     cursor: pointer;
+ }
+
+ .account {
+    padding: 10px;
+     display: flex;
+     justify-content: flex-start;
+     align-items: center;
+     height: 35px;
+     margin-top: 36px;
+     border-radius: 35px;
+     background: rgba(255, 255, 255, 0.222);
+     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+     backdrop-filter: blur(5px);
+     -webkit-backdrop-filter: blur(4px);
+     border: 1px solid rgba(43, 43, 43, 0.675); 
+ }
+
+
+ .account:hover {
+    background-color: #e8f5fe3f;
+    transition: color 100ms ease-out;
+    border:1px solid #E76E3F;
+  }
+
+ .profile-img{
+    height: 42px;
+ }
+
+ .username{ /*too much space for text, i cropped it here. */
+   max-width: fit-content;
+   font-size: 12px;
+   overflow: hidden;
+   white-space: nowrap; 
+   text-overflow: ellipsis;
+ }
+
+ .txt-2{
+    font-size: 12px;
+ }
+
+ .privateLock{
+    height: 13px;
+    padding-left: 5px;
+ }

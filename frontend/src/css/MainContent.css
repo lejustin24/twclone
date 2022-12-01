@@ -1,0 +1,21 @@
+.main {
+    background: #24272C;
+    width: 54%;
+    height: 100vh;
+    top: 0px;
+    overflow: auto;
+}
+
+.main-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.main-header .title{
+    font-weight: 400;
+}
+
+.homeIcon{
+    height: 30px;
+}

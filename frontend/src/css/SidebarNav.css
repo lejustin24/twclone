@@ -1,0 +1,30 @@
+.sidebarNav {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .sidebarNav:hover {
+    background-color: #e8f5fe3f;
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    transition: color 100ms ease-out;
+  }
+  
+  .navIcon{
+    width: 24px;
+
+  }
+  
+  .navText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    margin-left: 20px;
+  }
+
+ 
+  
+
+  

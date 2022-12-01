@@ -1,0 +1,22 @@
+.trends {
+    padding: 10px;
+    width: auto;
+    height: 70px;
+    box-shadow: inset -10px -10px 20px rgb(255 255 255 / 6%), inset 10px 10px 20px rgb(0 0 0 / 0%);
+    border: 1px #ffffff3d solid;
+}
+
+.country-txt, .tweet{
+    color: #9f9f9f;
+    font-size: 12px;
+}
+
+.content-txt{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.trends:hover{
+    border: 1px #ffffff solid;
+
+}

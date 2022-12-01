@@ -1,0 +1,53 @@
+.inputDataContainer{
+    display: flex;
+    height: 100px;
+
+}
+
+.block-tweet-input{
+    padding-left: 10px;
+    width: 100%;
+    min-height: 30px;
+    border: none !important;
+    background: transparent !important;
+    color: rgb(218, 218, 218);
+}
+
+.block-tweet-input:focus-visible{
+    outline: unset !important;
+}
+
+.bottom-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dummyIcon-container{
+    display: flex;
+    justify-content: space-around;
+    width: 230px;
+    padding: 5px;
+    box-shadow: inset -10px -10px 20px rgb(255 255 255 / 6%), inset 10px 10px 20px rgb(0 0 0 / 0%);
+    border: 1px #ffffff3d solid;
+    border-radius: 30px;
+}
+
+.icon-dummy{
+    width: 30px;
+}
+
+.submit-block-tweet{
+    width: 100px;
+    height: 42px;
+    background: #E76E3F;
+    color: #fff;
+    border-radius: 30px;
+    border: unset;
+
+}
+ 
+ .submit-block-tweet:hover {
+    background: #EF3118 !important;
+    cursor: pointer;
+ }

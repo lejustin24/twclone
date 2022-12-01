@@ -11,9 +11,9 @@ contract TwContract {
     // not even the one which have created and emitted them.
 
     event WriteTweet(address recipient, uint twID);
-    event UpdateTweet(address recipient, uint tweetsId, bool isDeleted);
+    event UpdateTweet(address recipient, uint tweetsId, bool isDeleted, uint reactions);
     event DeleteTweet(uint twID, bool isDeleted);
-
+    event ReactToTweet(uint twID);
 
     // structure for Tweet, it holds its id, the user's adress and the text.
     struct Tweet {
@@ -21,6 +21,7 @@ contract TwContract {
         address username;
         string twText;
         bool isDeleted;
+        uint reactions;
     }
 
     Tweet[] private tweets;
@@ -34,7 +35,7 @@ contract TwContract {
     // called for the frontend side
     function _writeTweet(string memory _twText, bool _isDeleted) external {
         uint twID = tweets.length;
-        tweets.push(Tweet(twID, msg.sender, _twText, _isDeleted));
+        tweets.push(Tweet(twID, msg.sender, _twText, _isDeleted, 0));
         tweetToOwner[twID] = msg.sender;
         emit WriteTweet(msg.sender, twID);
     }
@@ -76,14 +77,14 @@ contract TwContract {
     }
 
     // called for the frontend side
-    function _updateTweet(uint _twID, string memory _newText, bool _isDeleted) external {
+    function _updateTweet(uint _twID, string memory _newText, bool _isDeleted, uint _reactions) external {
         if (tweetToOwner[_twID] == msg.sender) {
             uint newTweetId = tweets.length;
             tweets[_twID].isDeleted = true;
-            tweets.push(Tweet(newTweetId, msg.sender, _newText, _isDeleted));
+            tweets.push(Tweet(newTweetId, msg.sender, _newText, _isDeleted, _reactions));
             tweetToOwner[newTweetId] = msg.sender;
             
-            emit UpdateTweet(msg.sender, _twID, _isDeleted);
+            emit UpdateTweet(msg.sender, _twID, _isDeleted, _reactions);
         }
     }
     // called for the frontend side
@@ -94,4 +95,14 @@ contract TwContract {
         }
     }
 
-}
+    function _reactToTweet(uint _twID) external {
+        tweets[_twID].reactions = tweets[_twID].reactions + 1;
+        emit ReactToTweet(_twID);
+    }
+
+
+    function _getReacts(uint _twID) external view returns (uint _reactions){
+        return (tweets[_twID].reactions);
+    }
+
+}   
